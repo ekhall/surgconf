@@ -10,6 +10,7 @@ gem 'bootstrap-will_paginate', '0.0.6'
 gem 'paper_trail'
 gem 'haml-rails'
 gem 'bourbon'
+gem 'thin'
 #gem 'bootswatch-rails'
 
 group :development, :test do
