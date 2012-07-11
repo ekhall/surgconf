@@ -11,15 +11,16 @@
     = render 'layouts/shim'
   %body
     = render 'layouts/header'
-    .hero-unit
+    %ul.nav.pull-right.nav-list.span4
+      %li{class: "nav-header"}List Header
+      %li{class: "active"}Home
+      %li{class: "active"} 
+        %a{href: "#"}Click
+    .hero-unit.span8
       = yield
-    .progress.progress-striped.active
-      .bar.span4.center.active{style: "width: 20%;"}
-    .alert.alert-info
-      Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-      tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-      quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-      consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
-      cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
-      proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-    = render 'layouts/footer'
+      .progress.progress-striped.active
+        .bar.span4.center.active{style: "width: 20%;"}
+      .alert.alert-info
+        Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse illum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+      %span{class: "badge badge-warning"}Warning
+      = render 'layouts/footer'

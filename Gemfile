@@ -11,7 +11,6 @@ gem 'paper_trail'
 gem 'haml-rails'
 gem 'bourbon'
 gem 'thin'
-#gem 'bootswatch-rails'
 
 group :development, :test do
   gem 'sqlite3', '1.3.5'
