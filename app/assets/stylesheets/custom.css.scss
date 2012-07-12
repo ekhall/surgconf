@@ -1,11 +1,16 @@
 @import "bootstrap";
 
+$lightGray: #999;
+$grayDarker: #222;
+$grayMediumLight: #eaeaea;
+
 /* universal */
 html {
   overflow-y: scroll;
 }
 body {
   padding-top: 60px;
+  padding-left: 40px;
   font-family: 'Open Sans', sans-serif;
 }
 section {
@@ -35,7 +40,7 @@ h2 {
   margin-bottom: 30px;
   text-align: center;
   font-weight: normal;
-  color: #999;
+  color: $lightGray;
 }
 p  {
   font-size: 1.1em; 
@@ -53,16 +58,41 @@ p  {
   padding-top: 9px;
   font-weight: none;
   line-height: 1;
+  &:hover {
+    color: #fff;
+    text-decoration: none;
+  }
 }
-#logo:hover {
-  color: #fff;
-  text-decoration: none;
-}
+
 .well {
   margin-right: 40px;
   margin-left: 40px;
 }
 .hero-unit {
   margin-right: 40px;
+}
+
+footer {
+  margin-top: 45px;
   margin-left: 40px;
+  padding-top: 5px;
+  border-top: 1px solid $grayMediumLight; 
+  color: $lightGray;
+  a {
+      color: #555;
+      &:hover {
+        color: $grayDarker;
+      }
+  }
+  small {
+    float: left;
+  }
+  ul {
+    float: right;
+    list-style: none;
+    li {
+      float: right;
+      margin-left: 10px;
+    }
+  } 
 }
