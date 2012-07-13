@@ -8,7 +8,13 @@ gem 'faker', '1.0.1'
 gem 'will_paginate', '3.0.3'
 gem 'bootstrap-will_paginate', '0.0.6'
 gem 'paper_trail'
+<<<<<<< HEAD
 gem 'bootswatch-rails'
+=======
+gem 'haml-rails'
+gem 'bourbon'
+gem 'thin'
+>>>>>>> a1354dd0bb93e21afeb443241d59970703d1298d
 
 group :development, :test do
   gem 'sqlite3', '1.3.5'
