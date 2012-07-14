@@ -11,6 +11,10 @@
     = render 'layouts/shim'
   %body
     = render 'layouts/header'
-    .hero-unit.span8
-      = yield
+    .row
+      .hero-unit.span6
+        = yield
+      .well.span4
+        = render 'layouts/news'
     = render 'layouts/footer'
+    = debug(params) if Rails.env.development?

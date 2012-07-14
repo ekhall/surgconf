@@ -1,15 +1,9 @@
 Surgconf::Application.routes.draw do
-<<<<<<< HEAD
-  get "static_pages/home"
-  get "static_pages/help"
-=======
-
   root              to: 'static_pages#home'
+  resources         :users
 
   match '/help',    to: 'static_pages#help'
   match '/signup',  to: 'users#new'
-  get "users/new"
->>>>>>> a1354dd0bb93e21afeb443241d59970703d1298d
 
   # The priority is based upon order of creation:
   # first created -> highest priority.

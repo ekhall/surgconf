@@ -1,9 +1,10 @@
 %header.navbar.navbar-fixed-top
   .navbar-inner
     .container
-      = link_to "YNHCH CTS Conference", '#', id: "logo"
+      %a.brand{href: "http://www.yale.edu"} Yale Ped Cards
       %nav
         %ul.nav.pull-right
           %li= link_to "Home", root_path
           %li= link_to "Help", help_path
-          %li= link_to "Sign In", '#'
+          -if true
+            %a{class: "btn btn-inverse"} Sign In
