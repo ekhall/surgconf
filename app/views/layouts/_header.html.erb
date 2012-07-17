@@ -50,14 +50,19 @@
                 <li><%= link_to "Settings", edit_user_path(current_user) %></li>
                 <li class="divider"></li>
                 <li>
+                  <%= link_to "User List", users_path %>
+                </li>
+                <li class="divider"></li>
+                <li>
                   <%= link_to "Logout", signout_path, method: "delete" %>
                 </li>
+
               </ul>
             </li>
 
-            <li><span class="label label-warning">Signed In: <%= current_user.name %></span></li>
+            <li><span class="label label-warning">Signed In:<%= current_user.name %></span></li>
           <% else %>
-            <a class="btn btn-inverse" href=<%= signin_path %>> Sign In</a>
+            <a class="btn btn-inverse" href=<%= signin_path %>><i class="icon-user icon-white"></i> Sign In</a>
           <% end %>
         </ul>
       </nav>

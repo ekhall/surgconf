@@ -1,0 +1,23 @@
+<%= provide(:title, 'All Users') %> 
+<h2><%= yield(:title) %></h2>
+
+<table class="table table-bordered table-striped">
+  <thead>
+    <tr>
+      <th>Picture</th>
+      <th>Name & Email</th>
+      <th>Title</th>
+      <th>Flags</th>
+      <th>Created</th>
+      <th>Updated</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @users.each do |user| %>
+      <tr>
+        <%= render 'usertable', user: user %>
+      </tr>
+    <% end %> 
+  </tbody>
+</table>
+</ul>

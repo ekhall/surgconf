@@ -1,0 +1,26 @@
+<%= provide(:title, 'Your Profile') %> 
+<h2><%= yield(:title) %></h2>
+
+<table class="table table-bordered table-striped">
+  <thead>
+    <tr>
+      <th>Picture</th>
+      <th>Name & Email</th>
+      <th>Title</th>
+      <th>Flags</th>
+      <th>Created</th>
+      <th>Updated</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <% @user.each do |user| %>
+        <%= render 'usertable', user: user %>
+      <% end %>
+    </tr>
+  </tbody>
+</table>
+
+<div class="nav pull-right">
+  <a href=<%= edit_user_path %> class="btn btn-primary btn-info"><i class="icon-pencil icon-white"></i> Edit Your Profile</a>
+</div>

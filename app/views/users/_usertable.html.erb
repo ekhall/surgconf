@@ -1,0 +1,23 @@
+<td><%= gravatar_for user %></td>
+<td><%= user.name %><br/><%= obfuscate_email(user.email) %></td>
+<td><%= user.title %></td>
+<td>
+  <!-- Admin -->
+  <% if user.admin? %>
+    <span class="label label-warning">Admin</span>
+  <% end %>
+  <!-- Editor -->
+  <% if user.editor? %>
+    <span class="label label-info">Editor</span>
+  <% end %>
+  <!-- Editor -->
+  <% if user.viewer? %>
+    <span class="label label-default">Viewer</span>
+  <% end %>
+</td>
+<td>
+  <%= pretty_date user.created_at.in_time_zone('Eastern Time (US & Canada)')%>
+</td>
+<td>
+  <%= pretty_date user.updated_at.in_time_zone('Eastern Time (US & Canada)')%>
+</td>

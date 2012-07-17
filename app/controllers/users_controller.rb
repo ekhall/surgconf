@@ -5,11 +5,13 @@ class UsersController < ApplicationController
   before_filter :admin_user,     only: :destroy
 
   def index
-    @users = User.paginate(page: params[:page])
+    @users = User.all
   end
 
   def show
-    @user = User.find(params[:id])
+    # Wrapping a single user in an array so we can put inside
+    # an @user.each do block.
+    @user = [User.find(params[:id])]
   end
 
   def new
@@ -28,6 +30,7 @@ class UsersController < ApplicationController
   end
 
   def edit
+    @user = User.find(params[:id])
   end
 
   def update

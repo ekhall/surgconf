@@ -9,17 +9,14 @@ module ApplicationHelper
 		end
 	end
 
-  def popover(model_name, attribute)
-    i18n_base = "simple_form.popovers.#{model_name.downcase}.#{attribute}"
+    def pretty_date(date)
+      return date unless date.is_a?(Time)
+      return date.strftime("%l:%M %P, %B %d, %Y") unless Time.now.year == date.year
+      date.strftime("%l:%M %P, %B %d")
+    end
 
-    content_tag(:i, '', class: "icon-question-sign",
-                        id: "#{attribute}_help",
-                        title: I18n.t("#{i18n_base}.title"),
-                        data: {
-                            # don't use popover as it conflicts with the actual pop-over thingy
-                            pop_over: true,
-                            content: I18n.t("#{i18n_base}.text")
-                        })
-  end
+    def obfuscate_email(email)
+        email.gsub("@", " at ").gsub(".", " dot ")
+    end
 
 end
