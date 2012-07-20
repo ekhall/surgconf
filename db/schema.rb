@@ -11,7 +11,29 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120717222628) do
+ActiveRecord::Schema.define(:version => 20120720003948) do
+
+  create_table "patients", :force => true do |t|
+    t.string   "surname"
+    t.string   "firstname"
+    t.date     "dob"
+    t.string   "mrn"
+    t.string   "diagnosis"
+    t.text     "pmhx"
+    t.text     "rx"
+    t.text     "vitals"
+    t.text     "exam"
+    t.text     "ekg"
+    t.text     "echo"
+    t.text     "cath"
+    t.text     "other"
+    t.text     "summary"
+    t.text     "decisions"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
+  add_index "patients", ["mrn", "created_at", "surname"], :name => "index_patients_on_mrn_and_created_at_and_surname"
 
   create_table "users", :force => true do |t|
     t.string   "name"

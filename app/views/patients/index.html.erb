@@ -1,0 +1,23 @@
+<%= provide(:title, 'All Patients') %> 
+<h2><%= yield(:title) %></h2>
+
+<table class="table table-bordered table-striped">
+  <thead>
+    <tr>
+      <th>Surname</th>
+      <th>Firstname</th>
+      <th>MRN</th>
+      <th>Diagnosis</th>
+      <th>Created</th>
+      <th>Updated</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @patients.each do |patient| %>
+      <tr>
+        <%= render 'patienttable', patient: patient %>
+      </tr>
+    <% end %> 
+  </tbody>
+</table>
+</ul>
