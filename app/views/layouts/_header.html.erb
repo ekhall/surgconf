@@ -31,12 +31,11 @@
                 Patients <b class="caret"></b>
               </a>
               <ul class="dropdown-menu">
-                <li><%= link_to "View Patients", '#' %></li>
+                <li><%= link_to "Create Patient", new_patient_path %></li>
                 <li><%= link_to "Edit Patients", '#' %></li>
+                <li><%= link_to "View Patients", '#' %></li>
                 <li class="divider"></li>
-                <li>
-                  <%= link_to "Extra Stuff", root_path %>
-                </li>
+                <li><%= link_to "Extra Stuff", root_path %></li>
               </ul>
             </li>
             
@@ -49,20 +48,16 @@
                 <li><%= link_to "Profile", current_user %></li>
                 <li><%= link_to "Settings", edit_user_path(current_user) %></li>
                 <li class="divider"></li>
-                <li>
-                  <%= link_to "User List", users_path %>
-                </li>
+                <li><%= link_to "User List", users_path %></li>
                 <li class="divider"></li>
-                <li>
-                  <%= link_to "Logout", signout_path, method: "delete" %>
-                </li>
-
+                <li><%= link_to "Logout", signout_path, method: "delete" %></li>
               </ul>
             </li>
 
             <li><span class="label label-warning">Signed In:<%= current_user.name %></span></li>
           <% else %>
-            <a class="btn btn-inverse" href=<%= signin_path %>><i class="icon-user icon-white"></i> Sign In</a>
+            <a class="btn btn-inverse" href=<%= signin_path %> >
+              <i class="icon-user icon-white"></i> Sign In</a>
           <% end %>
         </ul>
       </nav>

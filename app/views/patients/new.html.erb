@@ -1,46 +1,17 @@
 <%= provide(:title, 'Create New Patient') %> 
 <h1>Create New Patient</h1>
-  <div class="row">
-    <div class="offset1">
-      <%= form_for(@patient) do |f| %> 
+  <div class="container">
+      <%= form_for @patient, html: {class: "well"} do |f| %>
 
-        <div class="row">
-          <div class="span8">
-            <table class="table table-bordered table-striped">
-              <colgroup>
-                <col class="span1">
-                <col class="span1">
-                <col class="span1">
-                <col class="span1">
-                <col class="span1">
-              </colgroup>
-              <thead>
-                <tr>
-                 
-                  <% %w{surname firstname mrn dob diagnosis}.each do |field| %>
-                  <th>
-                    <%= f.label field %>
-                    <%= f.text_field field, class: field %>
-                   </th>
-                  <% end %>
+        <% %w{surname firstname mrn dob diagnosis}.each do |field| %>
+          <%= f.label field %>
+          <%= f.text_field field, class: "span3" %>
+        <% end %>
 
-                </tr>
-              </thead>
+        <% %w{pmhx rx vitals exam ekg echo cath other summary decisions}.each do |field| %>
+          <%= f.label field %>
+          <%= f.text_field field, class: "span8" %>
+        <% end %>
 
-              <tbody>
-                <% %w{pmhx rx vitals exam ekg echo cath other summary decisions}.each do |field| %>
-                  <tr>
-                    <td>
-                      <%= f.label field, class: "field.#{field}" %>
-                      <%= f.text_field field, class: "field.#{field}" %>
-                    </td>
-                  </tr>
-                <% end %>
-                <%= f.submit "Create Patient", class: "btn btn-large btn-primary" %> 
-              </tbody>
-            </table>
-          </div>
-        </div>
-      <% end %>
-    </div>
+      <% end %> <!-- End Form -->
   </div>
