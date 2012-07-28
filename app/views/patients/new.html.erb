@@ -1,7 +1,7 @@
 <%= provide(:title, 'Create New Patient') %> 
 <h1>Create New Patient</h1>
   <div class="container">
-      <%= form_for @patient, html: {class: "well"} do |f| %>
+      <%= form_for @patient, html: {class: "well form-horizontal"} do |f| %>
 
         <% %w{surname firstname mrn dob diagnosis}.each do |field| %>
           <%= f.label field %>
@@ -10,8 +10,39 @@
 
         <% %w{pmhx rx vitals exam ekg echo cath other summary decisions}.each do |field| %>
           <%= f.label field %>
-          <%= f.text_field field, class: "span8" %>
+          <%= f.text_area field, class: "span10", rows: "3" %>
         <% end %>
 
       <% end %> <!-- End Form -->
   </div>
+
+<!-- <div class="control-group">
+            <label class="control-label" for="textarea">Textarea</label>
+            <div class="controls">
+              <textarea class="input-xlarge" id="textarea" rows="3"></textarea>
+            </div>
+          </div> 
+
+          <div class="container">
+    <div class="row">
+        <div class="span12">
+            <form class="form-horizontal" method="post" action="/form/">
+                <fieldset>
+                    <legend>Please login</legend>
+                    <div class="control-group">
+                        <label class="control-label" for="id_username">Username</label>
+                        <div class="controls">
+                            <input name="username" maxlength="100" placeholder="Enter your username..." type="text" class="input-large" id="id_username" />
+                        </div>
+                    </div>
+                    <div class="control-group">
+                        <label class="control-label" for="id_password">Password</label>
+                        <div class="controls">
+                            <input name="password" maxlength="100" placeholder="Enter your password..." type="password" class="input-large" id="id_password" />
+                        </div>
+                    </div>
+                </fieldset>
+            </form>
+        </div>
+    </div>
+</div> -->
