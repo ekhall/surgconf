@@ -56,21 +56,21 @@ class PatientsController < ApplicationController
     def admin_user
       if !current_user.editor?
         flash[:error] = "You are not an administrator."
-        redirect_to users_path
+        redirect_to current_user
       end
     end
 
     def editor_user
       if !current_user.editor?
         flash[:error] = "You do not have patient editing privileges."
-        redirect_to users_path
+        redirect_to current_user
       end
     end
 
     def viewer_user
       if !current_user.viewer?
         flash[:error] = "You do not yet have patient viewing privileges."
-        redirect_to users_path
+        redirect_to current_user
       end
     end
 

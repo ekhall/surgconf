@@ -1,11 +1,11 @@
 class UsersController < ApplicationController
   before_filter :signed_in_user,
-                only: [:index, :edit, :update, :destroy, :following, :followers]
-  before_filter :correct_user,   only: [:edit, :update]
+                only: [:index, :new, :edit, :update, :destroy, :show]
+  before_filter :editor_user, only: [:new, :create, :update, :edit]
   before_filter :admin_user,     only: :destroy
 
   def index
-    @users = User.all
+    @users = User.all(order: 'admin DESC, editor DESC, name')
   end
 
   def show
@@ -57,6 +57,23 @@ class UsersController < ApplicationController
     end
 
     def admin_user
-      redirect_to root_path unless current_user.admin?
+      if !current_user.editor?
+        flash[:error] = "You are not an administrator."
+        redirect_to users_path
+      end
+    end
+
+    def editor_user
+      if !current_user.editor?
+        flash[:error] = "You do not have patient editing privileges."
+        redirect_to users_path
+      end
+    end
+
+    def viewer_user
+      if !current_user.viewer?
+        flash[:error] = "You do not yet have patient viewing privileges."
+        redirect_to users_path
+      end
     end
 end

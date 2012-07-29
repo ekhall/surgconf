@@ -1,8 +1,14 @@
 class ConferencesController < ApplicationController
+  before_filter :signed_in_user,
+                only: [:index, :new, :edit, :update, :destroy, :show]
+  before_filter :editor_user, only: [:new, :create, :update, :edit]
+  before_filter :viewer_user, only: [:index]
+  before_filter :admin_user,     only: :destroy
+
   # GET /conferences
   # GET /conferences.json
   def index
-    @conferences = Conference.all(order: 'conf_date')
+    @conferences = Conference.all(order: 'conf_date DESC')
 
     respond_to do |format|
       format.html # index.html.erb
@@ -80,4 +86,33 @@ class ConferencesController < ApplicationController
       format.json { head :no_content }
     end
   end
+
+
+  private
+
+    def correct_user
+      @user = User.find(params[:id])
+      redirect_to root_path unless current_user?(@user)
+    end
+
+    def admin_user
+      if !current_user.editor?
+        flash[:error] = "You are not an administrator."
+        redirect_to current_user
+      end
+    end
+
+    def editor_user
+      if !current_user.editor?
+        flash[:error] = "You do not have conference editing privileges."
+        redirect_to current_user
+      end
+    end
+
+    def viewer_user
+      if !current_user.viewer?
+        flash[:error] = "You do not yet have conference viewing privileges."
+        redirect_to current_user
+      end
+    end
 end

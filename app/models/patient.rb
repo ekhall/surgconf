@@ -8,7 +8,7 @@ class Patient < ActiveRecord::Base
   validates :mrn, presence: true, uniqueness: { case_sensitive: false }
   validates :dob, presence: true
 
-  has_and_belongs_to_many :conferences
+  has_and_belongs_to_many :conferences, uniq: true
 
 end
 

@@ -2,7 +2,7 @@ class Conference < ActiveRecord::Base
   attr_accessible :conf_date
   validates :conf_date, presence: true
 
-  has_and_belongs_to_many :patients
+  has_and_belongs_to_many :patients, uniq: true
 end
 
 # == Schema Information
