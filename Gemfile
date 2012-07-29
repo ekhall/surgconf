@@ -11,6 +11,7 @@ gem 'haml-rails'
 gem 'bourbon'
 gem 'thin'
 gem 'bluecloth'
+gem 'paper_trail'
 
 group :development, :test do
   gem 'annotate', '~> 2.4.1.beta'

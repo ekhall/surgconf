@@ -1,19 +1,14 @@
-<%= provide(:title, 'Create New Patient') %> 
-<h1>Create New Patient</h1>
-  <div class="container">
+<%= provide(:title, 'Edit Patient') %> 
+<h1>Edit Patient</h1>
+  <div>
       <%= form_for @patient, html: {class: "well form-horizontal"} do |f| %>
-        <%= render 'shared/error_messages', object: @patient %>
         <table class="table table-bordered table-striped">
           <thead>
             <tr>
               <% %w{surname firstname mrn dob diagnosis}.each do |field| %>
                 <th>
                 <%= proper_name(field.to_sym) %><br/>
-                <% if ("dob" == field) %>
-                  <%= f.text_field field, class: "input-small", placeholder: "1970-01-01" %>
-                <% else %>
-                  <%= f.text_field field, class: "input-medium" %>
-                <% end %>
+                <%= f.text_field field, class: "input-medium" %>
                 </th>
               <% end %>
             </tr>
@@ -24,7 +19,7 @@
               <tr>
                 <td colspan=5>  
                   <%= proper_name(field.to_sym) %>
-                  <%= f.text_area field, class: "span12", rows: 5 %>
+                  <%= f.text_area field, class: "span12", rows: linecount(field) %>
                 </td>
               </tr>
             <% end %>

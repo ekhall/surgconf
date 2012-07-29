@@ -77,10 +77,23 @@ p  {
   }
 }
 
+span {
+  vertical-align: middle;
+}
+
+div {
+  margin-right: 10px;
+  margin-left: 10px;
+}
 .well {
-  margin-right: 40px;
+  margin-right: 20px;
+  margin-left: 20px;
+}
+
+.row {
   margin-left: 40px;
 }
+
 .hero-unit {
   margin-right: 0px;
   background-color: $barGray;
@@ -123,6 +136,11 @@ footer {
 }
 
 /* miscellaneous */
+
+pre {
+  text-wrap: normal;
+}
+
 .debug_dump {
   clear: both;
   float: left;

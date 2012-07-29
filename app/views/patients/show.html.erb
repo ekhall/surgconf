@@ -1,0 +1,72 @@
+<%= provide(:title, 'View Patient') %> 
+<div class="page-header center">
+  <h1><%= "#{@patient.firstname.capitalize} #{@patient.surname.capitalize}" %><br/>
+    <small>Demographics and Facesheet</small>
+  </h1>
+  <% if current_user.editor? %>
+    <a class="btn btn-warning" href=<%= edit_patient_path %> >
+      <i class="icon-pencil icon-white"></i> Edit This Patient</a>
+  <% end %>
+
+</div>
+
+<div class="row-fluid">
+  <div class="span4 well">
+    <h2>Demographics</h2>
+    <%= "#{@patient.surname}, #{@patient.firstname}" %><br/>
+    <strong><%= "DOB:" %></strong> <%= "#{@patient.dob}" %><br/>
+    <strong><%= "MRN:" %></strong> <%= "#{@patient.mrn}" %><br/>
+    <strong><%= "Diag:" %></strong> <%= "#{@patient.diagnosis}" %>
+  </div>
+
+  <div class="span4">
+    <h2>Something Here</h2>
+    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+    tempor incididunt ut labore et dolore magna aliqua. </p>
+  </div>
+
+  <div class="span3">
+    <h2>Prior Presentations</h2>
+    <ul>
+      <li>10/10/2010</li>
+      <li>10/14/2010</li>
+      <li>12/10/2010</li>
+    </ul>
+  </div>
+</div> <!-- row -->
+
+<section id="patientinfo">
+  <div class="patient=header">
+    <h2>Patient Information</h2>
+  </div>
+
+  <table class="table">
+    <body>
+      <% %w{pmhx rx vitals exam ekg echo cath other summary}.each do |field| %>
+        <tr>
+          <% if @patient[field].blank? %>
+            <td class="span2">
+              <%= proper_name(field.to_sym) %>
+            </td>
+            <td class="span10"> 
+              <i>This Field is Empty</i>
+            </td>
+
+          <% else %>
+            <td class="span2">
+              <%= proper_name(field.to_sym) %>
+            </td>
+            <td class="span10"> 
+              <%= simple_format(@patient[field]) %>
+            </td>
+          <% end %>
+
+        </tr>
+      <% end %>
+    </body>
+  </table>
+
+  <% if current_user.admin? %>
+  <%= link_to "Delete Patient", @patient, class: "btn btn-danger", method: :delete, confirm: "Really Delete This Patient Forever?" %>
+  <% end %>
+

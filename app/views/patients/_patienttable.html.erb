@@ -1,6 +1,6 @@
+<td><%= link_to "#{patient.mrn}", patient_path(patient) %></td>
 <td><%= patient.surname %></td>
 <td><%= patient.firstname %></td>
-<td><%= patient.mrn %></td>
 <td><%= patient.diagnosis %></td>
-<td><%= patient.created_at %></td>
-<td><%= patient.updated_at %></td>
+<td><%= pretty_date patient.created_at %></td>
+<td><%= pretty_date patient.updated_at %></td>
