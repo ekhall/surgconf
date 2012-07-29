@@ -34,8 +34,7 @@ class PatientsController < ApplicationController
   def update
     @patient = Patient.find(params[:id])
     if @patient.update_attributes(params[:patient])
-      flash[:success] = "Patient updated"
-      redirect_to @patient
+      redirect_to @patient, notice: "Successfully Updated Patient. #{undo_link}"
     else
       render 'edit'
     end
@@ -43,10 +42,14 @@ class PatientsController < ApplicationController
 
   def destroy
     Patient.find(params[:id]).destroy
-    redirect_to patients_path, flash[:success] = "Patient destroyed"
+    redirect_to patients_path, notice: "Deleted Patient. #{undo_link}"
   end
 
   private
+
+    def undo_link
+      view_context.link_to("Undo", revert_version_path(@patient.versions.scoped.last), method: :post)
+    end
 
     def correct_user
       @user = User.find(params[:id])

@@ -3,6 +3,7 @@ class Patient < ActiveRecord::Base
   attr_accessible :pmhx, :rx, :vitals
   attr_accessible :cath, :diagnosis, :echo, :ekg, :exam, :other 
   attr_accessible :summary, :decisions
+  has_paper_trail
 
   validates :surname, :firstname, presence: true, length: { maximum: 30 }
   validates :mrn, presence: true, uniqueness: { case_sensitive: false }

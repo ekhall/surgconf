@@ -1,4 +1,5 @@
 Surgconf::Application.routes.draw do
+  post "versions/:id/revert" => "versions#revert", :as => "revert_version"
   root              to: 'static_pages#home'
   resources         :users
   resources         :patients
