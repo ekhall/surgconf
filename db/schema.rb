@@ -11,7 +11,22 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120720003948) do
+ActiveRecord::Schema.define(:version => 20120729200609) do
+
+  create_table "conferences", :force => true do |t|
+    t.date     "conf_date"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
+  add_index "conferences", ["conf_date", "created_at"], :name => "index_conferences_on_conf_date_and_created_at"
+
+  create_table "conferences_patients", :id => false, :force => true do |t|
+    t.integer "conference_id"
+    t.integer "patient_id"
+  end
+
+  add_index "conferences_patients", ["conference_id", "patient_id"], :name => "index_conferences_patients_on_conference_id_and_patient_id"
 
   create_table "patients", :force => true do |t|
     t.string   "surname"

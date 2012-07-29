@@ -1,0 +1,37 @@
+<%= provide(:title, 'Conference Listing') %> 
+<div class="page-header center">
+  <h1>Conference Listing<br/><small><%= @conference.conf_date %></small></h1>
+</div>
+
+<div class="span4">
+<%= link_to raw('<i class="icon-circle-arrow-left icon-black"></i> Back'), conferences_path, class: "btn btn-action" %>
+
+</div>
+<br/><br/>
+
+<div class="span11">
+  <table class="table table-bordered table-striped">
+    <thead>
+      <tr>
+        <th>MRN</th>
+        <th>Last Name</th>
+        <th>First Name</th>
+        <th>Date of Birth</th>
+        <th>Diagnosis</th>
+        <th>Primary Attending</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @conference.patients.each do |patient| %>
+        <tr>
+          <%= render 'conference_patient_table', patient: patient %>
+        </tr>
+      <% end %>
+     
+    </tbody>
+  </table>
+</div>
+
+<div class="span4">
+  <%= link_to raw('<i class="icon-pencil icon-black"></i> Edit'), edit_conference_path, class: "btn btn-action" %>
+</div>

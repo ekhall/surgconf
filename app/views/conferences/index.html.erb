@@ -1,0 +1,26 @@
+<%= provide(:title, 'Available Conferences') %> 
+<div class="page-header center">
+  <h1>Available Conferences</h1>
+</div>
+
+<table class="table table-bordered table-striped">
+  <thead>
+    <tr>
+      <th>Conference Date</th>
+      <th>Number of Patients</th>
+      <th>etc</th>
+      <th>etc</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @conferences.each do |conf| %>
+      <tr>
+        <td><%= link_to conf.conf_date, conf %></td>
+        <td><%= conf.patients.count %></td>
+        <td>space</td>
+        <td>space</td>
+      </tr>
+    <% end %> 
+  </tbody>
+</table>
+</ul>

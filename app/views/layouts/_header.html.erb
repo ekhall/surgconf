@@ -14,13 +14,13 @@
                 Conferences <b class="caret"></b>
               </a>
               <ul class="dropdown-menu">
-                <li><%= link_to "Present Conference", '#', html_options = {class: 'strong'}%></li>
+                <li><%= link_to "View Conferences", conferences_path, html_options = {class: 'strong'}%></li>
                 <li class="divider"></li>
-                <li><%= link_to "View Conferences", '#' %></li>
-                <li><%= link_to "Create Conference", '#' %></li>
+                <li><%= link_to "Blah Conferences", conferences_path %></li>
+                <li><%= link_to "Create Conference", new_conference_path %></li>
                 <li class="divider"></li>
                 <li>
-                  <%= link_to "Extra Stuff", root_path %>
+                  <%= link_to "Extra Stuff", '#' %>
                 </li>
               </ul>
             </li>

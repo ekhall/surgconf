@@ -3,6 +3,8 @@ Surgconf::Application.routes.draw do
   resources         :users
   resources         :patients
   resources         :sessions, only: [:new, :create, :destroy]
+  resources         :conferences
+
 
   match '/help',    to: 'static_pages#help'
   match '/signup',   to: 'users#new'
