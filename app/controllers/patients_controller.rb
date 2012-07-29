@@ -20,7 +20,7 @@ class PatientsController < ApplicationController
   def create
     @patient = Patient.new(params[:patient])
     if @patient.save
-      flash[:success] = "Patient #{@patient.firname} #{@patient.surname} saved..."
+      flash[:success] = "Patient #{@patient.firstname} #{@patient.surname} saved..."
       redirect_to patients_path
     else
       render 'new'
