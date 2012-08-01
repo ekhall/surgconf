@@ -8,8 +8,7 @@
     <tr>
       <th>Conference Date</th>
       <th>Number of Patients</th>
-      <th>etc</th>
-      <th>etc</th>
+      <th>Patients</th>
     </tr>
   </thead>
   <tbody>
@@ -17,8 +16,13 @@
       <tr>
         <td><%= link_to pretty_date_with_year(conf.conf_date), conf %></td>
         <td><%= conf.patients.count %></td>
-        <td>space</td>
-        <td>space</td>
+        <td>
+          <ul>
+            <% conf.patients.each do |pat| %>
+              <li><%= "#{pat.surname}" %></li>
+            <% end %>
+        </ul>
+        </td>
       </tr>
     <% end %> 
   </tbody>
