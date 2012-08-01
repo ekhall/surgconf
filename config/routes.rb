@@ -4,6 +4,7 @@ Surgconf::Application.routes.draw do
   resources         :patients
   resources         :sessions, only: [:new, :create, :destroy]
   resources         :conferences
+  resources         :appearances
 
 
   match '/help',    to: 'static_pages#help'
