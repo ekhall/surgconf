@@ -9,14 +9,18 @@ module ApplicationHelper
 		end
 	end
 
-    def pretty_date(date)
-      return date unless date.is_a?(Time)
-      return date.strftime("%l:%M %P, %B %d, %Y") unless Time.now.year == date.year
-      date.strftime("%l:%M %P, %B %d")
-    end
+  def pretty_date(date)
+    return date unless date.is_a?(Time)
+    return date.strftime("%l:%M %P, %B %d, %Y") unless Time.now.year == date.year
+    date.strftime("%l:%M %P, %B %d")
+  end
 
-    def obfuscate_email(email)
-        email.gsub("@", " at ").gsub(".", " dot ")
-    end
+  def pretty_date_with_year(date)
+    date.strftime("%B %d, %Y")
+  end
+
+  def obfuscate_email(email)
+      email.gsub("@", " at ").gsub(".", " dot ")
+  end
 
 end

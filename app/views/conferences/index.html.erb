@@ -15,7 +15,7 @@
   <tbody>
     <% @conferences.each do |conf| %>
       <tr>
-        <td><%= link_to conf.conf_date, conf %></td>
+        <td><%= link_to pretty_date_with_year(conf.conf_date), conf %></td>
         <td><%= conf.patients.count %></td>
         <td>space</td>
         <td>space</td>
