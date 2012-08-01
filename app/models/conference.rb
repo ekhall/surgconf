@@ -10,7 +10,11 @@ class Conference < ActiveRecord::Base
   end
 
   def patients_not_held
-    Patient.where(["id NOT IN(?)", appearances.map(&:patient_id)])
+    if Patient.where(["id NOT IN(?)", appearances.map(&:patient_id)]).any?
+      Patient.where(["id NOT IN(?)", appearances.map(&:patient_id)]).order("surname ASC")
+    else
+      Patient.all(order: "surname ASC")
+    end
   end
 end
 

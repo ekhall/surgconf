@@ -24,7 +24,7 @@
     <tbody>
       <% @conference.patients.each do |patient| %>
         <tr>
-          <%= render 'conference_patient_table', patient: patient %>
+          <%= render partial: 'conference_patient_table', :locals => {:goal => 'remove', patient: patient} %>
         </tr>
       <% end %>
      
@@ -33,11 +33,12 @@
 </div>
 
 <br/><br/><br/><br/><br/><br/>
-<h3>NOT in the conference</h3>
+<h2 class="center"><small>Add Patients to Conference Schedule</small></h2>
 <div class="span11">
   <table class="table table-bordered table-striped">
     <thead>
       <tr>
+        <td>Add</th>
         <th>MRN</th>
         <th>Last Name</th>
         <th>First Name</th>
@@ -49,7 +50,7 @@
     <tbody>
       <% @conference.patients_not_held.each do |patient| %>
         <tr>
-          <%= render 'conference_patient_table', patient: patient %>
+          <%= render partial: 'conference_patient_table', :locals => {:goal => 'add', patient: patient}  %>
         </tr>
       <% end %>
      
