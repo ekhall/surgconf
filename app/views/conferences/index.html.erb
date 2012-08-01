@@ -15,7 +15,30 @@
     <% @conferences.each do |conf| %>
       <tr>
         <td><%= link_to pretty_date_with_year(conf.conf_date), conf %></td>
-        <td><%= conf.patients.count %></td>
+        <td>
+          <% count = conf.patients.count %>
+          <% if count > 3 %>
+            <span class="badge badge-important">
+              <%= conf.patients.count %>
+            </span>
+          <% elsif count == 3 %>
+            <span class="badge badge-warning">
+              <%= conf.patients.count %>
+            </span>
+          <% elsif count == 2 %>
+            <span class="badge badge-success">
+              <%= conf.patients.count %>
+            </span>
+          <% elsif count == 1 %>
+            <span class="badge badge-info">
+              <%= conf.patients.count %>
+            </span>
+          <% else %>
+            <span class="badge">
+              <%= conf.patients.count %>
+            </span>
+          <% end %>
+        </td>
         <td>
           <ul>
             <% conf.patients.each do |pat| %>
