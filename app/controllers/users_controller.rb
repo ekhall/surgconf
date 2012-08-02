@@ -1,6 +1,7 @@
 class UsersController < ApplicationController
 
-  before_filter :admin_user,     only: :destroy
+  before_filter :admin_user,    only: :destroy
+  before_filter :find_user,     only: [:edit, :update, :destroy]
 
   def index
     @users = User.all(order: 'admin DESC, editor DESC, name')
@@ -28,11 +29,9 @@ class UsersController < ApplicationController
   end
 
   def edit
-    @user = User.find(params[:id])
   end
 
   def update
-    @user = User.find(params[:id])
     if @user.update_attributes(params[:user])
       sign_in @user
       flash[:success] = "Profile updated"
@@ -43,12 +42,14 @@ class UsersController < ApplicationController
   end
 
   def destroy
-    User.find(params[:id]).destroy
     flash[:success] = "User destroyed"
     redirect_to users_path
   end
 
   private
+    def find_user
+      @user = User.find(params[:id])
+    end
 
     def correct_user
       @user = User.find(params[:id])
