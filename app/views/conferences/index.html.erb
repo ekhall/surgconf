@@ -8,14 +8,14 @@
     <tr>
       <th>Conference Date</th>
       <th>Number of Patients</th>
-      <th>Patients</th>
+      <th></th>
     </tr>
   </thead>
   <tbody>
     <% @conferences.each do |conf| %>
       <tr>
-        <td><%= link_to pretty_date_with_year(conf.conf_date), conf %></td>
-        <td>
+        <td width="20%"><%= link_to pretty_date_with_year(conf.conf_date), conf %></td>
+        <td width="10%"><center>
           <% count = conf.patients.count %>
           <% if count > 3 %>
             <span class="badge badge-important">
@@ -38,13 +38,14 @@
               <%= conf.patients.count %>
             </span>
           <% end %>
+        </center>
         </td>
-        <td>
-          <ul>
-            <% conf.patients.each do |pat| %>
-              <li><%= "#{pat.surname}" %></li>
-            <% end %>
-        </ul>
+        <td width="70%">
+          <ul style="list-style-type: none;">
+          <% conf.patients.order('surname ASC').each do |pat| %>
+            <li style="display: inline; border-radius: 15px; padding: .2em 1em; background-color: #E8E7E3"><%= "#{pat.surname}" %></li>
+          <% end %>
+          </div>
         </td>
       </tr>
     <% end %> 

@@ -3,34 +3,36 @@
   <h1><%= "#{@patient.firstname.capitalize} #{@patient.surname.capitalize}" %><br/>
     <small>Demographics and Facesheet</small>
   </h1>
+  <%= link_to raw('<i class="icon-circle-arrow-left icon-black"></i> Back'), :back, class: "btn btn-action" %>
+
   <% if current_user.editor? %>
     <a class="btn btn-warning" href=<%= edit_patient_path %> >
       <i class="icon-pencil icon-white"></i> Edit This Patient</a>
   <% end %>
-
+  
 </div>
 
 <div class="row-fluid">
+
   <div class="span4 well">
     <h2>Demographics</h2>
-    <%= "#{@patient.surname}, #{@patient.firstname}" %><br/>
-    <strong><%= "DOB:" %></strong> <%= "#{@patient.dob}" %><br/>
-    <strong><%= "MRN:" %></strong> <%= "#{@patient.mrn}" %><br/>
-    <strong><%= "Diag:" %></strong> <%= "#{@patient.diagnosis}" %>
+    <strong><h5><%= "#{@patient.surname}, #{@patient.firstname}" %></strong></h5><br/>
+    <strong><h5><%= "DOB:" %></strong> <%= "#{@patient.dob}" %></h5><br/>
+    <strong><h5><%= "MRN:" %></strong> <%= "#{@patient.mrn}" %></h5><br/>
+    <strong><h5><%= "Diag:" %></strong> <%= "#{@patient.diagnosis}" %></h5>
   </div>
 
   <div class="span4">
-    <h2>Something Here</h2>
-    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-    tempor incididunt ut labore et dolore magna aliqua. </p>
+    <h2>Extra</h2>
+    <p></p>
   </div>
 
   <div class="span3">
-    <h2>Prior Presentations</h2>
+    <h2>Presentations</h2>
     <ul>
-      <li>10/10/2010</li>
-      <li>10/14/2010</li>
-      <li>12/10/2010</li>
+      <% @patient.conferences.order('conf_date DESC').each do |conf| %>
+        <li><%= link_to "#{pretty_date_with_year(conf.conf_date)}", conf %></li>
+      <% end %>
     </ul>
   </div>
 </div> <!-- row -->

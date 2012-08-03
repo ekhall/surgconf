@@ -1,5 +1,9 @@
 module ApplicationHelper
 
+  def show_version
+    "(0.6 r120803)"
+  end
+
 	def full_title(page_title)
 		base_title = "YNHCH Ped CTS"
 		if page_title.empty?

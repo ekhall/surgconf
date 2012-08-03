@@ -1,19 +1,28 @@
 <% provide(:title, 'Sign in') %>
-<h1>Sign in</h1>
 
-<div class="row">
-  <div class="span6 offset3">
-    <%= form_for(:session, url: sessions_path) do |f| %>
 
-      <%= f.label :email %>
-      <%= f.text_field :email %>
 
-      <%= f.label :password %>
-      <%= f.password_field :password %>
-
-      <%= f.submit "Sign in", class: "btn btn-large btn-primary" %>
-    <% end %>
-
-    <p>New user? <%= link_to "Sign up now!", signup_path %></p>
+<center>
+  <div class="page-header">
+    <h1>Sign in</h1>
   </div>
-</div>
+  <div class="row-fluid">
+    <div>
+      Please use your email address and password to sign in.
+    </div><br/><br/>
+    <div>
+      <%= form_for(:session, url: sessions_path, class: "well") do |f| %>
+
+        <%= f.label :email %>
+        <%= f.text_field :email, :placeholder => "Email Address" %>
+
+        <%= f.label :password %>
+        <%= f.password_field :password, :placeholder => "Password" %>
+        <br/><br/>
+        <%= f.submit "Sign in", class: "btn btn-large btn-primary" %>
+      <% end %>
+
+      <p><%= link_to "Request Access", signup_path %></p>
+    </div>
+  </div>
+</center>

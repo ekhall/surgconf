@@ -1,12 +1,3 @@
-<% if goal == 'add' %>
-  <td><%= button_to "Add", {:controller => :appearances, :action => 'create', :conf_id => @conference.id,
-    :pat_id => patient.id}, method: :create, class: "btn btn-success btn-mini" %></td>
-<% else %>
-
-  <td><%= button_to "Rem", {:controller => :appearances, :action => 'destroy', 
-    :id => @conference.appearances.where(patient_id: patient.id).map(&:id)}, method: :delete, class: "btn btn-warning btn-mini" %></td>
-
-<% end %>
 <td><%= link_to "#{patient.mrn}", patient_path(patient) %></td>
 <td><%= patient.surname %></td>
 <td><%= patient.firstname %></td>
@@ -14,4 +5,3 @@
 <td><%= patient.diagnosis %></td>
 <td>Attending Here</td>
 
-<!-- Patient.where(["id NOT IN(?)", appearances.map(&:patient_id)]) -->

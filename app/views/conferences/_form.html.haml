@@ -7,7 +7,59 @@
           %li= msg
 
   .field
-    = f.label :conf_date
     = f.date_select :conf_date
   .actions
     = f.submit 'Save'
+  :erb
+    <div>
+      <div class="span12">
+      <table class="table table-bordered table-striped">
+        <thead>
+          <tr>
+            <th>Remove</th>
+            <th>MRN</th>
+            <th>Last Name</th>
+            <th>First Name</th>
+            <th>Date of Birth</th>
+            <th>Diagnosis</th>
+            <th>Primary Attending</th>
+          </tr>
+        </thead>
+        <tbody>
+          <% @conference.patients.each do |patient| %>
+            <tr>
+              <%= render partial: 'edit_conference_patient_table', :locals => {:goal => 'remove', patient: patient} %>
+            </tr>
+          <% end %>
+         
+        </tbody>
+      </table>
+      </div>
+    </div>
+
+    <div class="span12">
+    <h2 class="center"><small>Add Patients to Conference Schedule</small></h2>
+    <div class="span11">
+      <table class="table table-bordered table-striped">
+        <thead>
+          <tr>
+            <td>Add</th>
+            <th>MRN</th>
+            <th>Last Name</th>
+            <th>First Name</th>
+            <th>Date of Birth</th>
+            <th>Diagnosis</th>
+            <th>Primary Attending</th>
+          </tr>
+        </thead>
+        <tbody>
+          <% @conference.patients_not_held.each do |patient| %>
+            <tr>
+              <%= render partial: 'edit_conference_patient_table', :locals => {:goal => 'add', patient: patient}  %>
+            </tr>
+          <% end %>
+         
+        </tbody>
+      </table>
+    </div>
+    </div>

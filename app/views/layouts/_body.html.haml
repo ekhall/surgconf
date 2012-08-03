@@ -2,7 +2,7 @@
   .well.hero-unit.span6
     = yield
 -else
-  .well.span12
+  .well.container-fluid
     -flash.each do |key, value|
       .alert{class: "alert-#{key}"} 
         =value

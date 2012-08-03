@@ -30,7 +30,7 @@ class ConferencesController < ApplicationController
   # GET /conferences/new
   # GET /conferences/new.json
   def new
-    @conference = Conference.new
+    @conference = Conference.create(conf_date: Date.today)
 
     respond_to do |format|
       format.html # new.html.erb

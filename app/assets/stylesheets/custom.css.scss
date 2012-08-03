@@ -10,6 +10,7 @@ $bgGray: #E8E7E3;
 $coolGray: #38373A;
 $bg1: lighten($bgGray, 0%);
 $bg2: darken($bg1, 0%);
+$letterOrange: darken($orange, 20%);
 
 /* universal */
 html {
@@ -34,7 +35,7 @@ textarea {
 .center {
   text-align: center;
   h1 {
-    margin-botton: 10px;
+    margin-botton: 0px;
   }
 }
 h1, h2, h3, h4, h5, h6 {
@@ -54,8 +55,25 @@ h2 {
   font-weight: normal;
   color: $lightGray;
 }
+h5 {
+  font-size: 1.5em;
+  line-height: -1;
+  letter-spacing: -1px;
+  margin-bottom: -10px;
+  text-align: left;
+  color: #505050;
+}
+
+
 p  {
   margin-top: 10px;
+  font-size: 1.1em; 
+  line-height: 1.7em;
+}
+
+p_space  {
+  margin-top: 10px;
+  margin-right: 20px;
   font-size: 1.1em; 
   line-height: 1.7em;
 }
@@ -82,8 +100,8 @@ span {
 }
 
 div {
-  margin-right: 10px;
-  margin-left: 10px;
+  margin-right: 0px;
+  margin-left: 0px;
 }
 .well {
   margin-right: 20px;
@@ -91,11 +109,12 @@ div {
 }
 
 .row {
-  margin-left: 40px;
+  margin-left: 0px;
 }
 
 .hero-unit {
-  margin-right: 0px;
+  margin-right: 10px;
+  margin-left: 10px;
   background-color: $barGray;
 }
 
