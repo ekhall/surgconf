@@ -14,32 +14,25 @@ gem 'bluecloth'
 gem 'paper_trail'
 
 group :development, :test do
-  gem 'annotate', '~> 2.4.1.beta'
-  gem 'sqlite3', '1.3.5'
-  gem 'rspec-rails', '2.10.0'
-  gem 'guard-rspec', '0.5.5'
+  gem 'annotate'
+  gem 'sqlite3'
+  gem 'rspec-rails'
+  gem 'guard-rspec'
 end
 
-# Gems used only for assets and not required
-# in production environments by default.
-group :assets do
-  gem 'sass-rails',   '3.2.4'
-  gem 'coffee-rails', '3.2.2'
-  gem 'uglifier', '1.2.3'
-end
+gem 'sass-rails'
+gem 'coffee-rails'
+gem 'uglifier'
 
 group :test do
-  gem 'capybara', '1.1.2'
-  gem 'factory_girl_rails', '1.4.0'
-  gem 'cucumber-rails', '1.2.1', :require => false
-  gem 'database_cleaner', '0.7.0'
-  gem 'guard-spork', '0.3.2'  
-  gem 'spork', '0.9.0'
-  gem 'launchy', '2.1.0'
-  gem 'rb-fsevent', '0.9.1', :require => false
-  gem 'growl', '1.0.3'
+  gem 'capybara'
+  gem 'factory_girl_rails'
+  gem 'cucumber-rails'
+  gem 'database_cleaner'
+  gem 'launchy'
+  gem 'rb-fsevent'
 end
 
 group :production do
-  gem 'pg', '0.12.2'
+  gem 'pg'
 end
