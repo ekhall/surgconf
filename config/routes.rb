@@ -6,11 +6,10 @@ Surgconf::Application.routes.draw do
   resources         :conferences
   resources         :appearances
 
-
-  match '/help',    to: 'static_pages#help'
-  match '/signup',   to: 'users#new'
+  match '/help',    to: 'static_pages#help', via: [:get, :post]
+  match '/signup',   to: 'users#new', via: [:get, :post]
   match '/signout',  to: 'sessions#destroy', via: :delete
-  match '/signin',   to: 'sessions#new'
+  match '/signin',   to: 'sessions#new', via: [:get, :post]
 
 
   # The priority is based upon order of creation:

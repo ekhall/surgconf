@@ -12,6 +12,7 @@ gem 'bourbon'
 gem 'thin'
 gem 'bluecloth'
 gem 'paper_trail'
+gem 'protected_attributes'
 
 group :development, :test do
   gem 'annotate'
